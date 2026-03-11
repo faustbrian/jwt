@@ -1,0 +1,89 @@
+{
+    "name": "cline/jwt",
+    "description": "Laravel-first JWT and JWS support with profile-driven issuance and validation",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/faustbrian/jwt",
+    "readme": "README.md",
+    "keywords": [
+        "auth",
+        "jws",
+        "jwt",
+        "laravel",
+        "security",
+        "token"
+    ],
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "brian@cline.sh"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/faustbrian/jwt/issues",
+        "security": "https://github.com/faustbrian/jwt/security",
+        "source": "https://github.com/faustbrian/jwt"
+    },
+    "require": {
+        "php": "^8.5.0",
+        "ext-openssl": "*",
+        "ext-sodium": "*",
+        "illuminate/container": "^12.0",
+        "illuminate/support": "^12.0",
+        "nesbot/carbon": "^3.11.1",
+        "facade/ignition-contracts": "^1.0"
+    },
+    "require-dev": {
+        "cline/coding-standard": "^2.0.1",
+        "orchestra/testbench": "^10.9",
+        "pestphp/pest": "^4.4",
+        "pestphp/pest-plugin-drift": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.1",
+        "symfony/var-dumper": "^7.4.6"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Cline\\JWT\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "ergebnis/composer-normalize": true,
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cline\\JWT\\JwtServiceProvider"
+            ],
+            "aliases": {
+                "JWT": "Cline\\JWT\\Facades\\JWT"
+            }
+        }
+    },
+    "scripts": {
+        "lint": "vendor/bin/ecs check --fix",
+        "refactor": "rector",
+        "test": [
+            "@test:lint",
+            "@test:type-coverage",
+            "@test:unit",
+            "@test:types",
+            "@test:refactor"
+        ],
+        "test:lint": "vendor/bin/ecs check",
+        "test:refactor": "rector --dry-run",
+        "test:type-coverage": "pest --parallel --min=80 --type-coverage",
+        "test:types": "phpstan",
+        "test:unit": "vendor/bin/pest"
+    }
+}

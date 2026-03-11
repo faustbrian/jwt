@@ -1,0 +1,14 @@
+/.phpunit.result.cache
+/.phpunit.cache
+/.php-cs-fixer.cache
+/composer.lock
+/phpunit.xml
+/vendor/
+*.swp
+*.swo
+.idea
+
+# Test fixtures must override any global *.key ignore rule so CI gets them.
+!tests/_keys/
+!tests/_keys/**/*.key
+!tests/**/*.pem
