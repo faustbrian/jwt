@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Added repository-level maintainer guidance in `AGENTS.md`.
 - Laravel-first JWT package architecture with container-driven runtime
   services and package auto-discovery
 - Profile-based issuance and parsing through `JWT::issueFor()` and
